@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ff198068-1770-4876-b9b5-c933fc1db13d/resourceGroups/webapp/providers/Microsoft.Web/sites/ApiEnvioCorreo",
+    "appService.deploySubpath": "."
+}
