@@ -32,12 +32,9 @@ npm run start
 
 Método: POST
 
-
 URL: http://localhost:3000/send-email
 
-
 Body: 
-
 
 {
   "name": "Nombre",
