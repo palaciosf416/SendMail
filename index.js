@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -25,8 +26,8 @@ app.post('/send-email', (req, res) => {
     secure: true,
     service: 'gmail',
     auth: {
-      user: 'design416lf@gmail.com',
-      pass: 'xnkg nghq gbpr iocr'
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
