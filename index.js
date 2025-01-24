@@ -4,11 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 3000; // Usa el puerto proporcionado por Azure o 3000 por defecto
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // Añadido para manejar JSON
+
+// Ruta de verificación de salud
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 app.post('/send-email', (req, res) => {
   const { name, email, subject, message } = req.body;
