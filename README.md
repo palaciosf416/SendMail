@@ -44,23 +44,23 @@ Body:
 
 Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo .env  en el directorio raíz.
 
-`EMAIL_USER=tu_correo_electronico`
-`EMAIL_PASS=tu_clave_de_correo_o_clave_de_aplicacion`
+* `EMAIL_USER=tu_correo_electronico`
+* `EMAIL_PASS=tu_clave_de_correo_o_clave_de_aplicacion`
 
 ## Stack tecnológico
 
 **Client:** 
 
 **Server:** 
-express: Framework para construir aplicaciones web y APIs.
-nodemailer: Módulo para enviar correos electrónicos.
-bodyParser: Middleware para analizar cuerpos de solicitudes HTTP.
-cors: Middleware para habilitar CORS (Cross-Origin Resource Sharing).
+- express: Framework para construir aplicaciones web y APIs.
+- nodemailer: Módulo para enviar correos electrónicos.
+- bodyParser: Middleware para analizar cuerpos de solicitudes HTTP.
+- cors: Middleware para habilitar CORS (Cross-Origin Resource Sharing).
 
 ## Rutas:
 
-app.get('/health', (req, res) => { res.status(200).send('OK'); });: Ruta de verificación de salud.
-app.post('/send-email', (req, res) => { ... });: Ruta para enviar correos electrónicos.
+- app.get('/health', (req, res) => { res.status(200).send('OK'); });: Ruta de verificación de salud.
+- app.post('/send-email', (req, res) => { ... });: Ruta para enviar correos electrónicos.
 
 
 ## Support
