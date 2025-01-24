@@ -1,12 +1,12 @@
 # API RESTful
-# Deployed in Azure APP Service
-Es una API RESTful construida con Node.js y Express.js que permite enviar correos electrónicos utilizando el módulo nodemailer.
 
+Es una API RESTful construida con Node.js y Express.js que permite enviar correos electrónicos utilizando el módulo nodemailer.
 
 
 ## Características
 
-- Esta API se encarga de enviarme la información de contacto de mi portafolio a mi correo electrónico.
+- Realicé esta API para enviarme la información de contacto de mi portafolio a mi correo electrónico.
+- Está alojada en Azure App Service.
 
 ## Instalación
 
