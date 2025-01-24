@@ -31,11 +31,8 @@ npm run start
 ## Configura la solicitud:
 
 Método: POST
-
 URL: http://localhost:3000/send-email
-
 Body: 
-
 {
   "name": "Nombre",
   "email": "destinatario@example.com",
