@@ -5,26 +5,22 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3000; // Usa el puerto proporcionado por Azure o 3000 por defecto
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // Añadido para manejar JSON
+app.use(bodyParser.json());
 
-// Ruta de verificación de salud
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
 app.post('/send-email', (req, res) => {
-  const { name, email, subject, message } = req.body;
+  // 1. CORRECCIÓN: Extraemos 'to' del cuerpo de la petición (body)
+  const { name, email, subject, message, to } = req.body;
 
-  // Configura el transporte de nodemailer
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    service: 'gmail',
+    service: 'gmail', // Simplificado para Gmail
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
@@ -32,13 +28,15 @@ app.post('/send-email', (req, res) => {
   });
 
   const mailOptions = {
-    to: 'design416lf@gmail.com',
+    from: `"Sistema de Folios" <${process.env.EMAIL_USER}>`,
+    to: to || 'sabas.palacios@elektra.com.mx', // 2. CORRECCIÓN: Usamos la variable 'to'
     subject: subject,
-    text: `Nombre: ${name}\nCorreo: ${email}\nAsunto: ${subject}\nMensaje: ${message}`
+    html: message // 3. CORRECCIÓN: Usamos 'html' en lugar de 'text' para que se vea bonito
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
+      console.error("Error enviando:", error);
       return res.status(500).send(error.toString());
     }
     res.status(200).send('Correo enviado: ' + info.response);
@@ -46,5 +44,5 @@ app.post('/send-email', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`);
+  console.log(`Servidor escuchando en puerto ${port}`);
 });
