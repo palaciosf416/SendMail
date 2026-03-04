@@ -32,7 +32,7 @@ app.post('/send-email', (req, res) => {
   });
 
   const mailOptions = {
-    to: 'sabas.palacios@elektra.com.mx',
+    to: 'design416lf@gmail.com',
     subject: subject,
     text: `Nombre: ${name}\nCorreo: ${email}\nAsunto: ${subject}\nMensaje: ${message}`
   };
